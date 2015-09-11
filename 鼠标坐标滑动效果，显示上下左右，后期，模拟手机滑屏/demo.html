@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+
+
+        *{ margin:0; padding:0;border:0px;}
+        @font-face {
+            font-family: '新蒂下午茶基本版';
+            src: url('新蒂下午茶基本版.ttf');
+        }
+        body{
+            font-family: '新蒂下午茶基本版';
+        }
+        ul li {
+            list-style-type:none;
+            float:left;
+            line-height:40px;
+            color:white;
+        }
+
+        #shang{
+            position:fixed; top:0px;
+            width:100%;height:40px;background-color:#00AAAA;
+            margin:0 auto;
+            display:none;
+        }
+        #zuo{
+            position:fixed; top:0px;
+            width:40px;height:100%;background-color:#00AAAA;
+            display:none;
+        }
+        #xia{
+            position:fixed;bottom:0px;
+            width:100%;height:40px;background-color:#00AAAA;
+            display:none;
+        }
+        #you{
+            position:fixed; top:0px;right:0px;
+            width:40px;height:100%;background-color:#00AAAA;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="shang">
+    <ul>
+        <li>装饰下</li>
+        <li>装饰下</li>
+        <li>装饰下</li>
+        <li>装饰下</li>
+    </ul>
+</div>
+<div id="xia">
+    <ul>
+        <li>装饰下</li>
+        <li>装饰下</li>
+        <li>装饰下</li>
+        <li>装饰下</li>
+    </ul>
+</div>
+<div id="zuo">
+    <ul>
+        <li>装饰下</li>
+        <li>装饰下</li>
+        <li>装饰下</li>
+        <li>装饰下</li>
+    </ul>
+</div>
+<div id="you">
+    <ul>
+        <li>装饰下</li>
+        <li>装饰下</li>
+        <li>装饰下</li>
+        <li>装饰下</li>
+    </ul>
+</div>
+
+<script src="js.js"></script>
+<script>
+    document.onmousemove = getScreen;
+    var _id = function (id){return document.getElementById(id)}
+    function getScreen(e) {
+        var e = e||window.event;
+        var xB = e.clientX;
+        var yB = e.clientY;
+        // 当前屏幕大小
+        var w=window.innerWidth
+                || document.documentElement.clientWidth
+                || document.body.clientWidth;
+
+        var h=window.innerHeight
+                || document.documentElement.clientHeight
+                || document.body.clientHeight;
+
+        if(xB>=0&&xB<=40){
+            _id('zuo').style.display = 'block'
+        }else{
+            _id('zuo').style.display = 'none'
+        }
+        if(yB>=0&&yB<=40&&xB>40&&xB<w-40){
+            _id('shang').style.display = 'block'
+        }else{
+            _id('shang').style.display = 'none'
+        }
+
+        if(xB>=w-40){
+            _id('you').style.display = 'block'
+        }else{
+            _id('you').style.display = 'none'
+        }
+        if(yB>=h-40){
+            _id('xia').style.display = 'block'
+        }else{
+            _id('xia').style.display = 'none'
+        }
+
+    }
+</script>
+</body>
+</html>
